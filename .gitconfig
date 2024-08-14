@@ -1,0 +1,58 @@
+[user]
+    email = 427722+jamiebarrow@users.noreply.github.com
+    name = James Barrow
+
+[alias]
+    co = checkout
+    dt = difftool -y -t winmerge
+    dtm = difftool --diff-filter=M -y -t winmerge
+    dts = difftool --cached -y -t winmerge
+    dtsm = difftool --cached --diff-filter=M -y -t winmerge
+    mt = mergetool -y -t kdiff3
+    undo = reset HEAD~1
+
+[core]
+    editor = vim
+
+[diff]
+    guitool = winmerge
+    tool = winmerge
+
+[difftool]
+    prompt = false
+
+[difftool "kdiff3"]
+    cmd = \"C:/Users/JamesBarrow/AppData/Local/KDiff3/bin/kdiff3.exe\" \"$LOCAL\" \"$REMOTE\"
+
+[difftool "winmerge"]
+    cmd = ~/winmerge.sh "$LOCAL" "$REMOTE"
+
+[difftool "code"]
+    cmd = "code --wait --diff $LOCAL $REMOTE"
+
+[fetch]
+    prune = true
+
+[merge]
+    tool = kdiff3
+
+[mergetool]
+    keepBackup = false
+    prompt = false
+
+[mergetool "kdiff3"]
+    path = C:/Users/JamesBarrow/AppData/Local/KDiff3/bin/kdiff3.exe
+
+[mergetool "winmerge"]
+    path = C:/Users/JamesBarrow/AppData/Local/Programs/WinMerge/WinMergeU.exe
+    cmd = \"C:/Users/JamesBarrow/AppData/Local/Programs/WinMerge/WinMergeU.exe\" -e -u \"$MERGED\"
+
+[push]
+    # default = simple
+    default = current
+
+[rerere]
+    enabled = true
+
+[init]
+    defaultBranch = main

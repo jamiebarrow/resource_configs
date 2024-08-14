@@ -1,0 +1,18 @@
+#!/bin/sh
+#sed 's/^RE #/#/' -i $1
+
+if ! [[ $(sed '1q' $1) =~ ^RE\ #[0-9]+\ -\ [a-zA-Z\ ]+ ]];
+then
+	>&2 echo commit-msg: ERROR: Commit message must start with line of the form: RE \#1234 - description;
+	exit -1;
+fi
+
+maxWcLength=51
+maxLength=50
+length=`sed '1q' $1 | wc -m`  
+
+if ! [ $length -le $maxWcLength ];
+then
+	>&2 echo commit-msg: ERROR: Commit message must start with line of max length $maxLength;
+	exit -1;
+fi
